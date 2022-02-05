@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/clientes.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE clientes SYSTEM "clientes.dtd">
+
+    <clientes>
+    ...
+    </clientes>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT clientes (sede)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT sede (direccion|empleado|fecha|descripcion|cliente)*>
+<!ATTLIST sede
+    codigo CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT direccion (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT empleado (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT fecha (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT descripcion (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT cliente (numero|vivienda)*>
+<!ATTLIST cliente
+    codigo CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT numero (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT vivienda (coste|resumen|plazo)*>
+<!ATTLIST vivienda
+    ID CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT coste (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT resumen (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT plazo (#PCDATA)>
