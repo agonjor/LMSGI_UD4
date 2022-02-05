@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    version="0.1" xml:lang="es">
+    <xs:annotation>
+        <xs:documentation xml:lang="Es-es">
+            Esquema para el alta de clientes en sede central
+            <fecha>2020-02-04</fecha>
+            <autor>Isidro Linares</autor>
+        </xs:documentation>
+    </xs:annotation>
+	<xs:element name="clientes">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <!-- ELEMENTO PADRE "SEDE" -->
+				<xs:element name="sede" minOccurs="1">
+                    <xs:complexType>
+                        <!-- Orden secuencial de SEDE -->
+                        <xs:sequence>
+                            <!-- Dirección de la sede -->
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="direccion" type="xs:string" />
+                            <!-- Nombre del empleado -->
+                            <xs:element name="nombreEmpleado" type="xs:string" />
+                            <!-- Fecha del alta -->
+                            <xs:element name="fechaAlta" type="xs:dateTime" />
+                            <!-- Elección entre Solvente e Insolvente -->
+                            <xs:element name="descripcionCliente" minOccurs="0">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Solvente"/>
+                                        <xs:enumeration value="Insolvente"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <!-- Elemento "CLIENTE" dentro de "SEDE" -->
+                            <xs:element name="cliente" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <!-- Orden secuencial SE-->
+                                    <xs:sequence>
+                                        <!-- Número de viviendas (número positivo) -->
+                                        <xs:element name="numViviendas" type="xs:positiveInteger" />
+                                        <!-- Coste de la vivienda (decimal) -->
+                                        <xs:element name="costeVivienda" type="xs:decimal" />
+                                        <!-- Resumen de viviendas (¿texto?) -->
+                                        <xs:element name="resumenViviendas" type="xs:string" />
+                                        <!-- Plazo del alta (¿fecha?) -->
+                                        <xs:element name="plazoAlta" type="xs:date" />
+                                    </xs:sequence>
+                                    <!-- Código de Cliente -->
+                                    <xs:attribute name="codigo" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <!-- Siempre {3 letras mayúsculas}-{3 números}-->
+                                                <xs:pattern value="[A-Z]{3}-[0-9]{3}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <!-- Código de Sede con restricción fuera del elemento -->
+                        <xs:attribute name="codigo" type="codigoCliente" use="required" />
+                    </xs:complexType>
+                </xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <!-- Añdir restricción fuera para poder reutilizarlo -->
+    <xs:simpleType name="codigoCliente">
+        <xs:restriction base="xs:string">
+            <!-- Siempre {8 caracteres y el primero una letra} -->
+            <xs:pattern value="[A-Za-z]{1}[0-9A-Za-z]{7}"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
