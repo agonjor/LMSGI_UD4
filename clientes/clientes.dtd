@@ -6,8 +6,9 @@
 <!ELEMENT empleado (#PCDATA)>
 <!ELEMENT fecha (#PCDATA)>
 <!ELEMENT descripcion (#PCDATA)>
-<!ELEMENT cliente (numero,coste,resumen?,plazo)>
+<!ELEMENT cliente (descCliente,numero,coste,resumen?,plazo)>
 <!ATTLIST cliente codigo CDATA #REQUIRED>
+<!ELEMENT descCliente (#PCDATA)>
 <!ELEMENT numero (#PCDATA)>
 <!ELEMENT coste (#PCDATA)>
 <!ELEMENT resumen (#PCDATA)>

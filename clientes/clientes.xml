@@ -6,14 +6,16 @@
         <direccion>C/Castilla, 1</direccion>
         <empleado>José luis Comesaña</empleado>
         <fecha>12-01-2012</fecha>
-        <descripcion>Urgente</descripcion>
+        <!-- <descripcion>Urgente</descripcion>-->
         <cliente codigo="AAA-111">
+            <descCliente>Solvente</descCliente>
             <numero>12</numero>
             <coste>100</coste>
             <resumen>Producto muy frágil</resumen>
             <plazo>10</plazo>
         </cliente>
         <cliente codigo="AAA-112">
+            <descCliente></descCliente>
             <numero>10</numero>
             <coste>10</coste>
             <resumen>No apilar más de cinco paquetes</resumen>
@@ -25,6 +27,7 @@
         <empleado>Antonio Resines</empleado>
         <fecha>10-02-2012</fecha>
         <cliente codigo="ABC-001">
+            <descCliente></descCliente>
             <numero>5</numero>
             <coste>50</coste>
             <resumen />

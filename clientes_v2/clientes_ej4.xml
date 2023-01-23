@@ -7,6 +7,7 @@
         <fecha>2012-02-10</fecha>
         <descripcion>Urgente</descripcion>
         <cliente codigo="AAA-111">
+            <descCliente>Solvente</descCliente>
             <numero>12</numero>
             <vivienda ID="001">
                 <coste>100</coste>
@@ -20,6 +21,7 @@
             </vivienda>
         </cliente>
         <cliente codigo="AAA-112">
+            <descCliente>Insolvente</descCliente>
             <numero>10</numero>
             <vivienda ID="001">
                 <coste>100</coste>
@@ -38,6 +40,7 @@
         <empleado>Antonio Resines</empleado>
         <fecha>52012-10-02</fecha>
         <cliente codigo="ABC-001">
+            <descCliente>Solvente</descCliente>
             <numero>5</numero>
             <vivienda ID="001">
                 <coste>100</coste>
